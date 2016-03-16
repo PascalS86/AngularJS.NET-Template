@@ -1,0 +1,35 @@
+﻿<div ng-include="'app/navbar/navbar.html'"></div>
+<div class="jumbotron hidden-sm hidden-xs">
+    <div class="container">
+        <div class="page-header text-center">
+            <h1>AngularJS.App</h1>
+        </div>
+        <p class="text-center">Welcome to your WebApp with AngularJS, SignalR, Bootstrap and WebApi</p>
+    </div>
+</div>
+<div class="container">
+    <form role="form">
+        <div class="row">
+            <div class="hidden-sm hidden-md hidden-lg col-xs-2"></div>
+            <div class="col-md-6 col-sm-offset-3 col-md-offset-3 col-xs-8">
+                <h2 class="form-login-heading">Login</h2>
+                <input type="text" class="form-control" style="margin-bottom:3px; max-width:100%;" placeholder="Username" ng-model="loginData.userName" required autofocus>
+                <input type="password" style="max-width:100%;" class="form-control" placeholder="Password" ng-model="loginData.password" required>
+                <button class="btn btn-md btn-info form-control" style="max-width:100%; margin-top:3px;" type="submit" ng-click="login()"  ng-class="{m-progress: clicked}">Login</button>
+                <div ng-hide="message == ''" class="alert alert-danger">
+                    {{message}}
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<hr class="hidden-sm hidden-xs" />
+<div id="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <p class="text-muted">Created by Pascal S.</p>
+            </div>
+        </div>
+    </div>
+</div>
