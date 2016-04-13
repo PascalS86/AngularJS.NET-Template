@@ -48,14 +48,20 @@ angular.module('AngularJS.App', [
   //    };
   //})
 
-  .run(function ($rootScope, $location, authService) {
+
+  .run(function ($rootScope, $state, $location, authService) {
       // Redirect to login if route requires auth and you're not logged in
       $rootScope.$on('$stateChangeStart', function (event, next) {
-          //Auth.isLoggedInAsync(function (loggedIn) {
-          //    if (next.authenticate && !loggedIn) {
-          //        event.preventDefault();
-          //        $location.path('/login');
-          //    }
-          //});
+          if (!authService.authentication.isAuth) {
+              if (next.name !== 'home' && next.name !== 'login' && next.name !== 'signup') {
+                  delete sessionStorage.character;
+
+                  $state.go('home');
+                  event.preventDefault();
+                  return;
+
+              }
+          }
+
       });
   });
